@@ -4,10 +4,8 @@ using Elastic.Transport;
 namespace Elasticsearch.WebAPI.Extensions;
 public static class ElasticsearchExt
 {
-
     public static void AddElastic(this IServiceCollection services, IConfiguration configuration)
     {
-
             var userName = configuration.GetSection("Elastic")["Username"]; 
             var password = configuration.GetSection("Elastic")["Password"];
 
@@ -16,6 +14,5 @@ public static class ElasticsearchExt
             var client= new ElasticsearchClient(settings);
 
             services.AddSingleton(client);
-
     }
 }
